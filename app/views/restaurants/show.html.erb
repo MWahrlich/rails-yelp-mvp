@@ -1,0 +1,54 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <table class="table">
+    <tbody>
+      <tr>
+        <td><strong>Name:</strong></td>
+        <td><%= @restaurant.name %></td>
+      </tr>
+
+      <tr>
+        <td><strong>Address:</strong></td>
+        <td><%= @restaurant.address %></td>
+      </tr>
+
+      <tr>
+       <td><strong>Phone Number:</strong></td>
+       <td><%= @restaurant.phone_number %></td>
+     </tr>
+
+     <tr>
+       <td><strong>Category:</strong></td>
+       <td><%= @restaurant.category %></td>
+     </tr>
+
+     <tr>
+       <td><strong>Average Rating:</strong></td>
+       <td><%= average(@restaurant) %></td>
+     </tr>
+   </tbody>
+ </table>
+ <div class="reviews">
+   <p>
+     <strong>Reviews:</strong>
+     <% @restaurant.reviews.each do |review| %>
+     <p><%= review.content %> | <%= review.rating %>/5</p>
+
+     <% end %>
+   </p>
+ </div>
+
+
+
+
+ <div class="navbar-wagon">
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+  <div class="flex-wrapper">
+    <%= link_to 'New Review', new_restaurant_review_path(@restaurant), class: "navbar-wagon-item navbar-wagon-link footer" %>
+    <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "navbar-wagon-item navbar-wagon-link footer" %>
+    <%= link_to 'Back', restaurants_path, class: "navbar-wagon-item navbar-wagon-link footer"%>
+    </div>
+  </div>
+</div>
+</div>
